@@ -1,0 +1,76 @@
+@import url(animations.css);
+
+/* reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* base */
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: midnightblue;
+  background-color: aliceblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem;
+  border: 5px solid salmon;
+  border-radius: 10px;
+  background-color: lavenderblush;
+  font-size: 2rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  background-color: darkslateblue;
+  transition: all 0.2s ease-in-out;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: midnightblue;
+}
+
+/* page elements */
+
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.copy-btn {
+  padding: none;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: transparent;
+  background-image: url('./solar--copy-darkslateblue.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.copy-btn:hover {
+  background-image: url('./solar--copy-salmon.svg');
+}
+
+.generate-btn:hover {
+  background-color: salmon;
+}

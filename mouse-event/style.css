@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: midnightblue;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  display: flex;
+  gap: 2rem;
+}
+
+.data-container {
+  border: 2px solid white;
+  padding: 2rem;
+}
+
+.data-value {
+  font-size: 2rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}
