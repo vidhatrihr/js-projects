@@ -41,6 +41,7 @@ button {
   color: white;
   background-color: darkslateblue;
   cursor: pointer;
+  user-select: none;
   border: 1px solid white;
   box-shadow: 3px 3px 0 0 white;
   transition: background-color 0.3s ease-in-out;

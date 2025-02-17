@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Autour One"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <main id="app">
+      <h1>Restaurant Menu</h1>
+
+      <div id="summary">
+        <h2>Order Summary</h2>
+        <ul>
+          <li v-for="key in Object.keys(order)">
+            <span>{{key}}</span>
+            <span>{{order[key]}}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div id="menu-container">
+        <div class="menu-item" v-for="dish in dishes">
+          <img v-bind:src="`./assets/${dish.img}`" v-bind:alt="`Picture of ${dish.name}`" />
+
+          <div class="name">{{dish.name}}</div>
+          <div class="desc">{{dish.desc}}</div>
+          <div class="price">₹{{dish.price}}</div>
+
+          <div class="qty">
+            <button>-</button>
+            <span>{{0}}</span>
+            <button>+</button>
+          </div>
+
+          <div class="order">
+            <button>Remove</button>
+            <button>Add to order</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            order: {
+              'Masala Dosa': 2,
+              Samosa: 3,
+            },
+
+            dishes: [
+              {
+                name: 'Masala Dosa',
+                desc: 'Thin, crispy pancake. Spicy potato inside.',
+                price: 120,
+                img: 'Masala Dosa.jpg',
+              },
+              {
+                name: 'Palak Paneer',
+                desc: 'Green spinach curry. Soft white cheese.',
+                price: 200,
+                img: 'Palak Paneer.jpg',
+              },
+              {
+                name: 'Vegetable Biryani',
+                desc: 'Spicy rice. Mixed vegetables. Very flavorful.',
+                price: 250,
+                img: 'Vegetable Biryani.jpg',
+              },
+              {
+                name: 'Dal Makhani',
+                desc: 'Soft black lentils. Cooked slowly. Very rich.',
+                price: 180,
+                img: 'Dal Makhani.jpg',
+              },
+              {
+                name: 'Samosa',
+                desc: 'Crispy outside. Spicy veggies inside. Triangle shape.',
+                price: 50,
+                img: 'Samosa.jpg',
+              },
+              {
+                name: 'Pakora',
+                desc: 'Small veggie balls. Fried. Crispy and spicy.',
+                price: 60,
+                img: 'Pakora.jpg',
+              },
+              {
+                name: 'Paneer Tikka',
+                desc: 'Grilled cheese pieces. Spicy and tangy.',
+                price: 150,
+                img: 'Paneer Tikka.jpg',
+              },
+              {
+                name: 'Lassi',
+                desc: 'Cold yogurt drink. Sweet or salty.',
+                price: 80,
+                img: 'Lassi.webp',
+              },
+              {
+                name: 'Masala Chai',
+                desc: 'Spiced tea with milk. Hot and sweet.',
+                price: 40,
+                img: 'Masala Chai.jpeg',
+              },
+              {
+                name: 'Mango Shake',
+                desc: 'Sweet mango drink. Smooth. Very tasty.',
+                price: 100,
+                img: 'Mango Shake.jpg',
+              },
+            ],
+          };
+          methods: {
+          }
+        },
+      });
+
+      app.mount('#app');
+    </script>
+  </body>
+</html>

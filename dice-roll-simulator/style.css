@@ -77,6 +77,12 @@ h1 {
   font-size: 1.5rem;
 }
 
+@media (max-width: 640px) {
+  .result-item {
+    width: 20rem;
+  }
+}
+
 .result-dice {
   font-size: 2.5rem;
 }

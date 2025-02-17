@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: inherit;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: lightyellow;
+}
+
+.testimonial-box {
+  height: 15rem;
+  width: 30rem;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: crimson;
+  box-shadow: -10px 9px 9px 2px #989;
+}
+
+.intro {
+  line-height: 1.2rem;
+}
+
+img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  top: -40%;
+}

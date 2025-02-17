@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tip Calculator</title>
+    <script src="main.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Tip Calculator</h1>
+
+      <div class="form">
+        <div>
+          <label>
+            Bill amount:
+            <input id="bill-amount" type="number" value="100" oninput="updateResult()" />
+          </label>
+        </div>
+
+        <div>
+          <label>
+            Tip percentage:
+            <input
+              id="tip-percentage"
+              type="number"
+              max="100"
+              value="10"
+              oninput="validateTipPercentage()"
+            />
+          </label>
+        </div>
+
+        <div>
+          <button onclick="resetForm()">Reset</button>
+        </div>
+      </div>
+
+      <div class="result">Total: ₹{{ total }}</div>
+
+      <div class="message thanks">Thank you for paying ₹{{ total }}</div>
+
+      <div class="message love">
+        <span class="m1">You are a good person!</span>
+        <span class="m2">You are a very good person!</span>
+        <span class="m3">You are the best person! 💖💖</span>
+      </div>
+    </main>
+  </body>
+</html>
