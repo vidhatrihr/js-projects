@@ -11,13 +11,22 @@ button {
 }
 
 body {
-  font-family: 'Autour One', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
 }
 
 h1 {
   text-align: center;
   margin: 2rem 0;
   color: #580800;
+}
+
+#summary {
+  max-width: 600px;
+  margin: auto;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background-color: white;
 }
 
 #menu-container {
@@ -30,6 +39,7 @@ h1 {
 
 .menu-item {
   border: 1px solid #ddd;
+  background-color: white;
   max-width: 450px;
   width: 100%;
   padding: 1rem;
