@@ -16,6 +16,7 @@ body {
 }
 
 .testimonial-box {
+  display: none;
   height: 15rem;
   width: 30rem;
   padding: 20px;
@@ -23,6 +24,10 @@ body {
   text-align: center;
   background-color: crimson;
   box-shadow: -10px 9px 9px 2px #989;
+}
+
+.testimonial-box.active {
+  display: block;
 }
 
 .intro {

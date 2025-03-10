@@ -5,76 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Restaurant Menu</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4.5.0/dist/vue-router.global.js"></script>
   </head>
   <body>
     <main id="app">
-      <div v-show='activePage === "index"'>
-        <h1>Restaurant Menu</h1>
-
-        <div id="summary">
-          <h2>Order Summary</h2>
-          <p v-show="Object.keys(orders).length === 0">Nothing here, please order something!</p>
-
-          <div class="summary-row" v-for="(qty, item) of orders">
-            <span>{{item}} x {{qty}}</span>
-            <span>₹{{ dishes[item].price * qty }}</span>
-          </div>
-
-          <div class="summary-row" style="margin-top: 1rem">
-            <span></span>
-            <span><strong>Total: ₹{{totalAmount}}</strong></span>
-          </div>
-
-          <div class="button-container">
-            <button @click="placeOrder">Place Order</button>
-          </div>
-        </div>
-
-        <div id="menu-container">
-          <div class="menu-item" v-for="dish in dishes">
-            <img v-bind:src="`./assets/${dish.img}`" v-bind:alt="`Picture of ${dish.name}`" />
-
-            <div class="name">{{dish.name}}</div>
-            <div class="desc">{{dish.desc}}</div>
-            <div class="price">₹{{dish.price}}</div>
-
-            <div class="qty">
-              <button @click="updateQty(dish.name, -1)">-</button>
-              <span>{{orders[dish.name] || 0}}</span>
-              <button @click="updateQty(dish.name, +1)">+</button>
-            </div>
-
-            <div class="order">
-              <button @click="removeOrder(dish.name)">Remove</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div v-show='activePage === "checkout"'>
-        <h1>Checkout</h1>
-        <p>Complete the payment to place your order...</p>
-        <div>
-          <button @click='activePage = "tracker"'>Pay now</button>
-        </div>
-        <div>
-          <button @click='activePage = "index"'>Go back to menu</button>
-        </div>
-      </div>
-
-      <div v-show='activePage === "tracker"'>
-        <h1>Track your order</h1>
-        <p>Chef is preparing your order...</p>
-      </div>
+      <router-view></router-view>
     </main>
 
+    <template id="page-index-template">
+      <h1>Restaurant Menu</h1>
+
+      <div id="summary">
+        <h2>Order Summary</h2>
+        <p v-show="Object.keys(orders).length === 0">Nothing here, please order something!</p>
+
+        <div class="summary-row" v-for="(qty, item) of orders">
+          <span>{{item}} x {{qty}}</span>
+          <span>₹{{ dishes[item].price * qty }}</span>
+        </div>
+
+        <div class="summary-row" style="margin-top: 1rem">
+          <span></span>
+          <span><strong>Total: ₹{{totalAmount}}</strong></span>
+        </div>
+
+        <div class="button-container">
+          <button @click="placeOrder">Place Order</button>
+        </div>
+      </div>
+
+      <div id="menu-container">
+        <div class="menu-item" v-for="dish in dishes">
+          <img v-bind:src="`./assets/${dish.img}`" v-bind:alt="`Picture of ${dish.name}`" />
+
+          <div class="name">{{dish.name}}</div>
+          <div class="desc">{{dish.desc}}</div>
+          <div class="price">₹{{dish.price}}</div>
+
+          <div class="qty">
+            <button @click="updateQty(dish.name, -1)">-</button>
+            <span>{{orders[dish.name] || 0}}</span>
+            <button @click="updateQty(dish.name, +1)">+</button>
+          </div>
+
+          <div class="order">
+            <button @click="removeOrder(dish.name)">Remove</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="page-checkout-template">
+      <h1>Checkout</h1>
+      <p>Complete the payment to place your order...</p>
+      <div>
+        <button @click="payNow">Pay now</button>
+      </div>
+      <div>
+        <a href="#/">Go back to menu</a>
+      </div>
+    </template>
+
+    <template id="page-tracker-template">
+      <h1>Track your order</h1>
+      <p>Chef is preparing your order...</p>
+    </template>
+
     <script>
-      const app = Vue.createApp({
+      const IndexPage = {
         data() {
           return {
-            activePage: 'index',
             orders: {
               'Masala Dosa': 2,
               Samosa: 3,
@@ -165,11 +167,38 @@
             delete this.orders[dishName];
           },
           placeOrder() {
-            this.activePage = 'checkout';
+            router.push('/checkout');
           },
         },
+        template: document.querySelector('#page-index-template').innerHTML,
+      };
+
+      const CheckoutPage = {
+        methods: {
+          payNow() {
+            router.push('/track-order');
+          },
+        },
+        template: document.querySelector('#page-checkout-template').innerHTML,
+      };
+
+      const TrackerPage = {
+        template: document.querySelector('#page-tracker-template').innerHTML,
+      };
+
+      const routes = [
+        { path: '/', component: IndexPage },
+        { path: '/checkout', component: CheckoutPage },
+        { path: '/track-order', component: TrackerPage },
+      ];
+
+      const router = VueRouter.createRouter({
+        history: VueRouter.createWebHashHistory(),
+        routes,
       });
 
+      const app = Vue.createApp({});
+      app.use(router);
       app.mount('#app');
     </script>
   </body>

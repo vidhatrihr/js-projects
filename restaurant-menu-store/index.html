@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-router@4.5.0/dist/vue-router.global.js"></script>
+  </head>
+  <body>
+    <main id="app">
+      <router-view></router-view>
+    </main>
+
+    <template id="page-index-template">
+      <h1>Restaurant Menu</h1>
+
+      <div id="summary">
+        <h2>Order Summary</h2>
+        <p v-show="Object.keys(store.orders).length === 0">Nothing here, please order something!</p>
+
+        <div class="summary-row" v-for="(qty, item) of store.orders">
+          <span>{{item}} x {{qty}}</span>
+          <span>₹{{ store.dishes[item].price * qty }}</span>
+        </div>
+
+        <div class="summary-row" style="margin-top: 1rem">
+          <span></span>
+          <span><strong>Total: ₹{{store.totalAmount}}</strong></span>
+        </div>
+
+        <div class="button-container">
+          <button @click="placeOrder">Place Order</button>
+        </div>
+      </div>
+
+      <div id="menu-container">
+        <div class="menu-item" v-for="dish in store.dishes">
+          <img v-bind:src="`./assets/${dish.img}`" v-bind:alt="`Picture of ${dish.name}`" />
+
+          <div class="name">{{dish.name}}</div>
+          <div class="desc">{{dish.desc}}</div>
+          <div class="price">₹{{dish.price}}</div>
+
+          <div class="qty">
+            <button @click="updateQty(dish.name, -1)">-</button>
+            <span>{{ store.orders[dish.name] || 0 }}</span>
+            <button @click="updateQty(dish.name, +1)">+</button>
+          </div>
+
+          <div class="order">
+            <button @click="removeOrder(dish.name)">Remove</button>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <template id="page-checkout-template">
+      <h1>Checkout</h1>
+      <p>Complete the payment to place your order...Total: ₹{{store.totalAmount}}</p>
+      <div>
+        <button @click="payNow">Pay now</button>
+      </div>
+      <div>
+        <a href="#/">Go back to menu</a>
+      </div>
+    </template>
+
+    <template id="page-tracker-template">
+      <h1>Track your order</h1>
+      <p>Chef is preparing your order...</p>
+    </template>
+
+    <script>
+      const store = Vue.reactive({
+        orders: {
+          'Masala Dosa': 2,
+          Samosa: 3,
+        },
+        dishes: {
+          'Masala Dosa': {
+            name: 'Masala Dosa',
+            desc: 'Thin, crispy pancake. Spicy potato inside.',
+            price: 120,
+            img: 'Masala Dosa.jpg',
+          },
+          'Palak Paneer': {
+            name: 'Palak Paneer',
+            desc: 'Green spinach curry. Soft white cheese.',
+            price: 200,
+            img: 'Palak Paneer.jpg',
+          },
+          'Vegetable Biryani': {
+            name: 'Vegetable Biryani',
+            desc: 'Spicy rice. Mixed vegetables. Very flavorful.',
+            price: 250,
+            img: 'Vegetable Biryani.jpg',
+          },
+          'Dal Makhani': {
+            name: 'Dal Makhani',
+            desc: 'Soft black lentils. Cooked slowly. Very rich.',
+            price: 180,
+            img: 'Dal Makhani.jpg',
+          },
+          Samosa: {
+            name: 'Samosa',
+            desc: 'Crispy outside. Spicy veggies inside. Triangle shape.',
+            price: 50,
+            img: 'Samosa.jpg',
+          },
+          Pakora: {
+            name: 'Pakora',
+            desc: 'Small veggie balls. Fried. Crispy and spicy.',
+            price: 60,
+            img: 'Pakora.jpg',
+          },
+          'Paneer Tikka': {
+            name: 'Paneer Tikka',
+            desc: 'Grilled cheese pieces. Spicy and tangy.',
+            price: 150,
+            img: 'Paneer Tikka.jpg',
+          },
+          Lassi: {
+            name: 'Lassi',
+            desc: 'Cold yogurt drink. Sweet or salty.',
+            price: 80,
+            img: 'Lassi.webp',
+          },
+          'Masala Chai': {
+            name: 'Masala Chai',
+            desc: 'Spiced tea with milk. Hot and sweet.',
+            price: 40,
+            img: 'Masala Chai.jpeg',
+          },
+          'Mango Shake': {
+            name: 'Mango Shake',
+            desc: 'Sweet mango drink. Smooth. Very tasty.',
+            price: 100,
+            img: 'Mango Shake.jpg',
+          },
+        },
+        totalAmount: Vue.computed(() => {
+          let total = 0;
+          for (let dishName in store.orders) {
+            let qty = store.orders[dishName];
+            let price = store.dishes[dishName].price;
+            total += qty * price;
+          }
+          return total;
+        }),
+      });
+
+      const IndexPage = {
+        data() {
+          return { store };
+        },
+        methods: {
+          updateQty(dishName, change) {
+            let orders = store.orders;
+            if (orders[dishName] === undefined) orders[dishName] = 0;
+            orders[dishName] += change;
+            if (orders[dishName] <= 0) delete orders[dishName];
+          },
+          removeOrder(dishName) {
+            delete store.orders[dishName];
+          },
+          placeOrder() {
+            router.push('/checkout');
+          },
+        },
+        template: document.querySelector('#page-index-template').innerHTML,
+      };
+
+      const CheckoutPage = {
+        data() {
+          return { store };
+        },
+        methods: {
+          payNow() {
+            router.push('/track-order');
+          },
+        },
+        template: document.querySelector('#page-checkout-template').innerHTML,
+      };
+
+      const TrackerPage = {
+        template: document.querySelector('#page-tracker-template').innerHTML,
+      };
+
+      const routes = [
+        { path: '/', component: IndexPage },
+        { path: '/checkout', component: CheckoutPage },
+        { path: '/track-order', component: TrackerPage },
+      ];
+
+      const router = VueRouter.createRouter({
+        history: VueRouter.createWebHashHistory(),
+        routes,
+      });
+
+      const app = Vue.createApp({});
+      app.use(router);
+      app.mount('#app');
+    </script>
+  </body>
+</html>
