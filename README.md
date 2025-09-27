@@ -14,6 +14,12 @@
 
 [/rock-paper-scissors-game](https://vidhatrihr.github.io/js-projects/rock-paper-scissors-game)
 
+[/testimonial-slider](https://vidhatrihr.github.io/js-projects/testimonial-slider)
+
+[/tip-calculator](https://vidhatrihr.github.io/js-projects/tip-calculator)
+
+[/tip-calculator-vanilla](https://vidhatrihr.github.io/js-projects/tip-calculator-vanilla)
+
 ---
 
 [/restaurant-menu](https://vidhatrihr.github.io/js-projects/restaurant-menu)
@@ -25,11 +31,3 @@
 [/restaurant-menu-vite](https://vidhatrihr.github.io/js-projects/restaurant-menu-vite)
 
 ---
-
-[/rock-paper-scissors-game](https://vidhatrihr.github.io/js-projects/rock-paper-scissors-game)
-
-[/testimonial-slider](https://vidhatrihr.github.io/js-projects/testimonial-slider)
-
-[/tip-calculator](https://vidhatrihr.github.io/js-projects/tip-calculator)
-
-[/tip-calculator-vanilla](https://vidhatrihr.github.io/js-projects/tip-calculator-vanilla)
