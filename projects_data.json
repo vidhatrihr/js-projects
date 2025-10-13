@@ -1,0 +1,100 @@
+[
+  {
+    "title": "Basic Calculator",
+    "description": "A simple calculator app with standard arithmetic operations and a clean interface",
+    "date": "2025-08-16",
+    "tags": ["Logic", "UI"],
+    "slug": "basic-calculator"
+  },
+  {
+    "title": "Dice Roll Simulator",
+    "description": "Simulates rolling a die with animated dice faces and keeps track of roll history",
+    "date": "2025-07-15",
+    "tags": ["Animation", "Random", "UI"],
+    "slug": "dice-roll-simulator"
+  },
+  {
+    "title": "Heart Trail Animation",
+    "description": "Creates a trail of floating heart symbols that follow mouse movement",
+    "date": "2025-06-20",
+    "tags": ["Animation", "Mouse Events"],
+    "slug": "heart-trail-animation"
+  },
+  {
+    "title": "Mouse Event",
+    "description": "Displays real-time X and Y coordinates as you move your mouse around",
+    "date": "2025-05-10",
+    "tags": ["Mouse Events", "UI"],
+    "slug": "mouse-event"
+  },
+  {
+    "title": "Pomodoro Timer",
+    "description": "A customizable timer for the Pomodoro productivity technique with progress bar",
+    "date": "2025-09-01",
+    "tags": ["Timer", "Productivity"],
+    "slug": "pomodoro-timer"
+  },
+  {
+    "title": "Random Password Generator",
+    "description": "Generates secure random passwords with copy to clipboard functionality",
+    "date": "2025-04-25",
+    "tags": ["Security", "Random"],
+    "slug": "random-password-generator"
+  },
+  {
+    "title": "Restaurant Menu",
+    "description": "Interactive restaurant menu with order management and checkout process",
+    "date": "2025-08-05",
+    "tags": ["Vue", "UI", "State Management"],
+    "slug": "restaurant-menu"
+  },
+  {
+    "title": "Restaurant Menu Router",
+    "description": "Enhanced restaurant menu with Vue Router for multi-page navigation",
+    "date": "2025-08-10",
+    "tags": ["Vue", "Router", "UI"],
+    "slug": "restaurant-menu-router"
+  },
+  {
+    "title": "Restaurant Menu Store",
+    "description": "Restaurant menu with centralized state management using Vue store",
+    "date": "2025-08-15",
+    "tags": ["Vue", "State Management", "UI"],
+    "slug": "restaurant-menu-store"
+  },
+  {
+    "title": "Restaurant Menu Vite",
+    "description": "Modern restaurant menu built with Vue 3 and Vite build tool",
+    "date": "2025-08-20",
+    "tags": ["Vue", "Vite", "Modern Build"],
+    "slug": "restaurant-menu-vite"
+  },
+  {
+    "title": "Rock Paper Scissors Game",
+    "description": "Classic rock paper scissors game with score tracking",
+    "date": "2025-07-01",
+    "tags": ["Game", "Logic"],
+    "slug": "rock-paper-scissors-game"
+  },
+  {
+    "title": "Testimonial Slider",
+    "description": "Displays testimonials with smooth transition animations",
+    "date": "2025-06-15",
+    "tags": ["Animation", "UI"],
+    "slug": "testimonial-slider"
+  },
+  {
+    "title": "Tip Calculator",
+    "description": "Calculate tips with custom percentages and friendly messages.",
+    "date": "2025-05-20",
+    "tags": ["Logic"],
+    "slug": "tip-calculator"
+  },
+  {
+    "title": "Tip Calculator Vanilla",
+    "description": "Calculate tips with custom percentages using vanilla JavaScript",
+    "date": "2025-05-15",
+    "tags": ["JavaScript", "Calculator"],
+    "slug": "tip-calculator-vanilla"
+  }
+]
