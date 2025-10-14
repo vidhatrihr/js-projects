@@ -1,0 +1,146 @@
+[
+  {
+    "title": "Dice Roll Simulator",
+    "description": "Simulates rolling a die with animated dice faces and keeps track of roll history",
+    "date": "2025-01-04",
+    "tags": [
+      "Animation",
+      "Random",
+      "UI"
+    ],
+    "slug": "dice-roll-simulator"
+  },
+  {
+    "title": "Pomodoro Timer",
+    "description": "A customizable timer for the Pomodoro productivity technique with progress bar",
+    "date": "2025-01-06",
+    "tags": [
+      "Timer",
+      "Productivity"
+    ],
+    "slug": "pomodoro-timer"
+  },
+  {
+    "title": "Rock Paper Scissors Game",
+    "description": "Classic rock paper scissors game with score tracking",
+    "date": "2025-01-10",
+    "tags": [
+      "Game",
+      "Logic"
+    ],
+    "slug": "rock-paper-scissors-game"
+  },
+  {
+    "title": "Random Password Generator",
+    "description": "Generates secure random passwords with copy to clipboard functionality",
+    "date": "2025-01-13",
+    "tags": [
+      "Security",
+      "Random"
+    ],
+    "slug": "random-password-generator"
+  },
+  {
+    "title": "Mouse Event",
+    "description": "Displays real-time X and Y coordinates as you move your mouse around",
+    "date": "2025-01-17",
+    "tags": [
+      "Mouse Events",
+      "UI"
+    ],
+    "slug": "mouse-event"
+  },
+  {
+    "title": "Heart Trail Animation",
+    "description": "Creates a trail of floating heart symbols that follow mouse movement",
+    "date": "2025-01-18",
+    "tags": [
+      "Animation",
+      "Mouse Events"
+    ],
+    "slug": "heart-trail-animation"
+  },
+  {
+    "title": "Basic Calculator",
+    "description": "A simple calculator app with standard arithmetic operations and a clean interface",
+    "date": "2025-01-22",
+    "tags": [
+      "Logic",
+      "UI"
+    ],
+    "slug": "basic-calculator"
+  },
+  {
+    "title": "Testimonial Slider",
+    "description": "Displays testimonials with smooth transition animations",
+    "date": "2025-01-27",
+    "tags": [
+      "Animation",
+      "UI"
+    ],
+    "slug": "testimonial-slider"
+  },
+  {
+    "title": "Tip Calculator",
+    "description": "Calculate tips with custom percentages and friendly messages.",
+    "date": "2025-02-13",
+    "tags": [
+      "Logic"
+    ],
+    "slug": "tip-calculator"
+  },
+  {
+    "title": "Restaurant Menu",
+    "description": "Interactive restaurant menu with order management and checkout process",
+    "date": "2025-02-14",
+    "tags": [
+      "Vue",
+      "UI",
+      "State Management"
+    ],
+    "slug": "restaurant-menu"
+  },
+  {
+    "title": "Tip Calculator Vanilla",
+    "description": "Calculate tips with custom percentages using vanilla JavaScript",
+    "date": "2025-02-14",
+    "tags": [
+      "JavaScript",
+      "Calculator"
+    ],
+    "slug": "tip-calculator-vanilla"
+  },
+  {
+    "title": "Restaurant Menu Router",
+    "description": "Enhanced restaurant menu with Vue Router for multi-page navigation",
+    "date": "2025-03-10",
+    "tags": [
+      "Vue",
+      "Router",
+      "UI"
+    ],
+    "slug": "restaurant-menu-router"
+  },
+  {
+    "title": "Restaurant Menu Store",
+    "description": "Restaurant menu with centralized state management using Vue store",
+    "date": "2025-03-10",
+    "tags": [
+      "Vue",
+      "State Management",
+      "UI"
+    ],
+    "slug": "restaurant-menu-store"
+  },
+  {
+    "title": "Restaurant Menu Vite",
+    "description": "Modern restaurant menu built with Vue 3 and Vite build tool",
+    "date": "2025-03-10",
+    "tags": [
+      "Vue",
+      "Vite",
+      "Modern Build"
+    ],
+    "slug": "restaurant-menu-vite"
+  }
+]

@@ -2,7 +2,7 @@ const html = String.raw;
 
 fetchData();
 async function fetchData() {
-  let response = await fetch('./projects_data.json');
+  let response = await fetch('./assets/projects_data.json');
   let data = await response.json();
   useProjectData(data);
 }
@@ -26,13 +26,19 @@ function useProjectData(data) {
       <div class="container">
         <div class="project">
           <div class="screenshot">
-            <img src="https://picsum.photos/300/200" alt="img" />
+            <img src="./assets/screenshots/${slug}.jpg" alt="${title}" />
           </div>
           <h4 class="title">${title}</h4>
           <div class="description">${description}</div>
-          <div class="date">${date}</div>
+          <div class="date">
+            <iconify-icon icon="line-md:calendar"></iconify-icon>
+            ${date}
+          </div>
           <div class="tags">${allTags}</div>
-          <a href="https://vidhatrihr.github.io/js-projects/${slug}">Open Live Preview</a>
+          <a href="https://vidhatrihr.github.io/js-projects/${slug}" target="_blank"
+            >Open Live Preview
+            <iconify-icon icon="mage:preview-fill"></iconify-icon>
+          </a>
         </div>
       </div>
     `;
